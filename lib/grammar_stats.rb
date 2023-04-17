@@ -1,21 +1,18 @@
 class GrammarStats
-  def initialize(text)
-    @text = text
+  def initialize
     @passed_texts = 0
     @checked_texts = 0
   end
   
-  def check
-    fail "not valid sentence" if @text == ""
-    loop do
-      if (@text[0] == @text[0].capitalize) && ([".", "!", "?"].include? @text[-1])
-        @passed_texts += 1
-        @checked_texts += 1
-        return true
-      else
-        @checked_texts += 1
-        return false
-      end
+  def check(text)
+    # fail "not valid sentence" if text == ""
+    if (text[0] == text[0].capitalize) && ([".", "!", "?"].include? text[-1])
+      @passed_texts += 1
+      @checked_texts += 1
+      return true
+    else
+      @checked_texts += 1
+      return false
     end
   end
   
@@ -23,16 +20,15 @@ class GrammarStats
   # the check defined in the `check` method. The number 55 represents 55%.
   
   def percentage_good
-    puts @passed_texts
-    puts @checked_texts
-    @passed_texts / @checked_texts * 100
+    return (@passed_texts.to_f / @checked_texts.to_f * 100).round
   end
 end
 
-grammar_stats = GrammarStats.new("Valid string!")
-grammar_stats1 = GrammarStats.new("invalid string!")
-grammar_stats2 = GrammarStats.new("invalid string2?")
-grammar_stats.check
-grammar_stats1.check
-grammar_stats2.check
-grammar_stats.percentage_good
+# grammar_stats = GrammarStats.new
+# grammar_stats.check("Valid string!")
+# grammar_stats.check("invalid string!")
+# grammar_stats.check("invalid string2?")
+# grammar_stats.percentage_good
+
+
+
