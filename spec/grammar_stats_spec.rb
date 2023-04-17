@@ -15,5 +15,12 @@ describe GrammarStats do
         expect(grammar_stats.check).to eq false
       end
     end
+
+    context "given an empty string" do
+      it "fails" do
+        grammar_stats = GrammarStats.new("")
+        expect { grammar_stats.check }.to raise_error "not valid sentence"
+      end
+    end
   end
 end

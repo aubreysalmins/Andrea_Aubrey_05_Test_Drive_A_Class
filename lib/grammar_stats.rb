@@ -8,7 +8,8 @@ class GrammarStats
     # letter and ends with a sentence-ending punctuation mark.
     # && @text.include?(".", "!", "?")
   def check
-    if @text[0] == @text[0].capitalize
+    fail "not valid sentence" if @text == ""
+    if (@text[0] == @text[0].capitalize) && ([".", "!", "?"].include? @text[-1])
       return true
     else
       return false
