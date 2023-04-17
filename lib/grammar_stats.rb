@@ -8,9 +8,10 @@ class GrammarStats
     # letter and ends with a sentence-ending punctuation mark.
     # && @text.include?(".", "!", "?")
   def check
-    puts @text
-    if @text[0].upcase == @text
+    if @text[0] == @text[0].capitalize
       return true
+    else
+      return false
     end
   end
 
@@ -20,5 +21,5 @@ class GrammarStats
   end
 end
 
-grammar_stats = GrammarStats.new("Hello we are")
-grammar_stats.check
+# grammar_stats = GrammarStats.new("hello we are")
+# grammar_stats.check
