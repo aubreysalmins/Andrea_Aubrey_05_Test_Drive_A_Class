@@ -23,4 +23,15 @@ describe GrammarStats do
       end
     end
   end
+
+  describe "#percentage_good" do
+    context "given three strings, one valid and two not" do
+      it "returns 50" do
+        grammar_stats = GrammarStats.new("Valid string!")
+        grammar_stats_1 = GrammarStats.new("invalid string!")
+        grammar_stats_2 = GrammarStats.new("invalid string2?")
+        expect(grammar_stats.percentage_good).to eq 33
+      end
+    end
+  end
 end
