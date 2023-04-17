@@ -6,9 +6,12 @@ class GrammarStats
   # text is a string
     # Returns true or false depending on whether the text begins with a capital
     # letter and ends with a sentence-ending punctuation mark.
-
-  def check 
-    true
+    # && @text.include?(".", "!", "?")
+  def check
+    puts @text
+    if @text[0].upcase == @text
+      return true
+    end
   end
 
   def percentage_good
@@ -16,3 +19,6 @@ class GrammarStats
     # the check defined in the `check` method. The number 55 represents 55%.
   end
 end
+
+grammar_stats = GrammarStats.new("Hello we are")
+grammar_stats.check
